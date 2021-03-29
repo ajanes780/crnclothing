@@ -10,6 +10,7 @@ const MenuItemComponent = ({
   linkUrl,
   match,
 }) => (
+  //  create an onclick event that pushes the name of the section to the url history
   <div
     className={`${size} menu-item`}
     onClick={() => history.push(`${match.url}${linkUrl}`)}
