@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MenuitemComponent } from "../menuItem/menuItem";
+import MenuItemComponent from "../menuItem/menuItem";
 import "./directoryComponentStyle.scss";
 
 export const Directory = () => {
@@ -42,13 +42,9 @@ export const Directory = () => {
 
   return (
     <div className="directory-menu">
-      {state.sections.map(({ title, imageUrl, id, size }) => (
-        <MenuitemComponent
-          key={id}
-          title={title}
-          imageUrl={imageUrl}
-          size={size}
-        />
+      {/* i will try to spread props here instead of breaking all these down =>title, imageUrl, size, linkUrl   */}
+      {state.sections.map(({ id, ...otherSectionProps }) => (
+        <MenuItemComponent key={id} {...otherSectionProps} />
       ))}
     </div>
   );
