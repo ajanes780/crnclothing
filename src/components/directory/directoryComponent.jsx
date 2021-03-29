@@ -42,8 +42,13 @@ export const Directory = () => {
 
   return (
     <div className="directory-menu">
-      {state.sections.map(({ title, imageUrl, id }) => (
-        <MenuitemComponent key={id} title={title} imageUrl={imageUrl} />
+      {state.sections.map(({ title, imageUrl, id, size }) => (
+        <MenuitemComponent
+          key={id}
+          title={title}
+          imageUrl={imageUrl}
+          size={size}
+        />
       ))}
     </div>
   );
