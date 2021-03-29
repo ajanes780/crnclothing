@@ -7,3 +7,7 @@
 - Fully Responsive
 
 - Currently under construction
+
+
+
+  <img src="https://github.com/ajanes780/crnclothing/blob/main/images/Screenshot%20from%202021-03-29%2012-01-51.png?raw=true" alt="Girl in a jacket" width="500" height="600">
