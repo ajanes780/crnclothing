@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// this is a SVG image so this is special syntax to import it
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import "./HeaderComponentStyle.scss";
 
