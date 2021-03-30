@@ -1,4 +1,7 @@
 import React, { useState, useRef } from "react";
+import { FormInputComponent } from "../formInputComponent/FormInputComponent";
+import { CustomButtonComponent } from "../CustomButton/CustomButtonComponent";
+import "./SignInStyle.scss";
 
 export const SignIn = () => {
   const idRef = useRef();
@@ -22,23 +25,27 @@ export const SignIn = () => {
       <span>SIgn in with your email and password</span>
 
       <form ref={idRef} onSubmit={handleSubmit}>
-        <input
+        <FormInputComponent
           name="email"
           type="email"
-          onChange={handleChange}
+          label="Email"
+          handleChange={handleChange}
           value={state.email}
           required
         />
-        <label>Email</label>
-        <input
+
+        <FormInputComponent
           name="password"
           type="password"
+          label="Password"
           value={state.password}
-          onChange={handleChange}
+          handleChange={handleChange}
           required
         />
-        <label>Password</label>
-        <input type="submit" value="submit form" />
+
+        <CustomButtonComponent type="submit" value="submit form">
+          Sign In{" "}
+        </CustomButtonComponent>
       </form>
     </div>
   );
