@@ -13,15 +13,20 @@ function App() {
   });
 
   useEffect(() => {
+    // let unsubscribeFromAuth = null;
     auth.onAuthStateChanged((user) => {
       setState((prev) => ({ ...prev, currentUser: user }));
-      console.log(`This is user `, user.displayName, user.photoURL);
+      // console.log(`This is user `, user.displayName, user.photoURL);
     });
+    // return unsubscribeFromAuth();
   }, [auth]);
 
   return (
     <div className="App">
-      <HeaderComponent userPhoto={state.currentUser.photoURL} />
+      <HeaderComponent
+        currentUser={state.currentUser}
+        userPhoto={state.currentUser}
+      />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopComponent} />
