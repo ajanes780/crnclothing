@@ -1,11 +1,13 @@
 import React, { useState, useRef } from "react";
 import { FormInputComponent } from "../formInputComponent/FormInputComponent";
 import { CustomButtonComponent } from "../CustomButton/CustomButtonComponent";
+import { signInWithGoogle } from "../../firebase/firebase.utilis";
 import "./SignInStyle.scss";
 
 export const SignIn = () => {
   const idRef = useRef();
   const [state, setState] = useState({ email: "", password: "" });
+  // const [state, setState] = useState({ email: "", password: "" });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,7 +17,9 @@ export const SignIn = () => {
 
   const handleChange = (event) => {
     event.preventDefault();
-    const { value, name } = idRef.current;
+    // console.log(event.target);
+    const { name, value } = event.target;
+    // console.log("value :>> ", value);
     setState((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -26,10 +30,11 @@ export const SignIn = () => {
 
       <form ref={idRef} onSubmit={handleSubmit}>
         <FormInputComponent
+          autoFocus
           name="email"
           type="email"
-          label="Email"
-          handleChange={handleChange}
+          label="email"
+          onChange={handleChange}
           value={state.email}
           required
         />
@@ -37,14 +42,17 @@ export const SignIn = () => {
         <FormInputComponent
           name="password"
           type="password"
-          label="Password"
+          label="password"
           value={state.password}
-          handleChange={handleChange}
+          onChange={handleChange}
           required
         />
 
-        <CustomButtonComponent type="submit" value="submit form">
-          Sign In{" "}
+        <CustomButtonComponent onsubmit={handleSubmit} type="submit">
+          Sign In
+        </CustomButtonComponent>
+        <CustomButtonComponent onClick={signInWithGoogle} isGoogleSignIn>
+          {""}Sign In With Google{""}
         </CustomButtonComponent>
       </form>
     </div>
