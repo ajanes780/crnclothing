@@ -8,7 +8,6 @@ export const ShopComponent = () => {
   const [data] = useState({ collections: SHOP_DATA });
 
   const { collections } = data;
-  console.log("this is data :>> ", collections);
   return (
     <div className="shop-page">
       {collections.map(({ id, ...otherCollectionProps }) => (
