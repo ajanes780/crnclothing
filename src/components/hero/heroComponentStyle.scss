@@ -1,5 +1,8 @@
 .wrapper {
-  width: 98.9%;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  width: 100%;
   height: 650px;
   overflow: hidden;
 }
@@ -8,14 +11,13 @@
   min-width: 99%;
   height: 95%;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   margin-bottom: 5px;
   padding: 0;
   justify-content: center;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  overflow: hidden;
 
   &:hover {
     transform: scale(1.1);

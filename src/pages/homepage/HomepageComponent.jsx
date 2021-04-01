@@ -5,13 +5,11 @@ import { HeroComponent } from "../../components/hero/HeroComponent";
 
 export const HomePage = () => {
   return (
-    <div>
+    <>
+      <HeroComponent />
       <div className="homepage">
-        <HeroComponent>
-          <h1>Crown Clothing </h1>
-        </HeroComponent>
         <Directory />
       </div>
-    </div>
+    </>
   );
 };

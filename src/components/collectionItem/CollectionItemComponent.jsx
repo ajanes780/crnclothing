@@ -4,7 +4,6 @@ import { HeroComponent } from "../hero/HeroComponent";
 
 export const CollectionItemComponent = ({ id, name, price, imageUrl }) => (
   <>
-    <HeroComponent />
     <div className="collection-item">
       <div
         className="image"
