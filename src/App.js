@@ -13,20 +13,26 @@ function App() {
   });
 
   useEffect(() => {
-    let unsubscribeFromAuth = null;
-
-    auth.onAuthStateChanged((userAuth) => {
+    auth.onAuthStateChanged(async (userAuth) => {
+      let unsubscribeFromAuth = null;
       // this is a aysne call to the data base  cant update state till it gets returned
-      const userRef = createUserProfileDocument(userAuth);
-
-      setState((prev) => ({
-        ...prev,
-        currentUser: userRef,
-      }));
-
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        await userRef.onSnapshot((snapShot) => {
+          setState((prev) => ({
+            ...prev,
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data(),
+            },
+          }));
+        });
+      }
+      // when they log out we set the current user to null
+      setState({ currentUser: null });
       return () => unsubscribeFromAuth();
     });
-  }, [state]);
+  }, []);
 
   return (
     <div className="App">
