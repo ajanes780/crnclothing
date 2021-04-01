@@ -47,13 +47,14 @@ export const SignIn = () => {
           onChange={handleChange}
           required
         />
-
-        <CustomButtonComponent onsubmit={handleSubmit} type="submit">
-          Sign In
-        </CustomButtonComponent>
-        <CustomButtonComponent onClick={signInWithGoogle} isGoogleSignIn>
-          {""}Sign In With Google{""}
-        </CustomButtonComponent>
+        <div className="buttons">
+          <CustomButtonComponent onsubmit={handleSubmit} type="submit">
+            Sign In
+          </CustomButtonComponent>
+          <CustomButtonComponent onClick={signInWithGoogle} isGoogleSignIn>
+            {""}Sign In With Google{""}
+          </CustomButtonComponent>
+        </div>
       </form>
     </div>
   );
