@@ -5,7 +5,7 @@ import { ShopComponent } from "./pages/shop/shopComponent";
 import { Switch, Route } from "react-router-dom";
 import { HeaderComponent } from "./components/HeaderComponent/HeaderComponent";
 import { SignInPageAndSignUpPage } from "./pages/signInPage/signInAndSignUpPage";
-import { auth } from "./firebase/firebase.utilis";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utilis";
 
 function App() {
   const [state, setState] = useState({
@@ -14,9 +14,21 @@ function App() {
 
   useEffect(() => {
     let unsubscribeFromAuth = null;
-    auth.onAuthStateChanged((user) => {
-      setState((prev) => ({ ...prev, currentUser: user }));
-      // console.log(`This is user `, user.displayName, user.photoURL);
+    auth.onAuthStateChanged((userAuth) => {
+      // check and if not present add user to database
+      const userRef = createUserProfileDocument(userAuth);
+
+      userRef.snapshot((snapShot) => {
+        setState((prev) => ({
+          ...prev,
+          currentUser: {
+            id: userRef.snapShot.id,
+            displayPic: userAuth.photoURL,
+            ...snapShot.data(),
+          },
+        }));
+      });
+
       return () => unsubscribeFromAuth();
     });
   }, []);

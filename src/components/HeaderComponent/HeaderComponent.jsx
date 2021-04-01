@@ -24,12 +24,12 @@ export const HeaderComponent = ({ currentUser, userPhoto }) => (
             {" "}
             SIGN OUT{" "}
           </div>
-          <div style={{ "margin-left": "30px" }}>
+          <div style={{ marginLeft: "30px" }}>
             <img
               src={userPhoto.photoURL}
               alt="user"
               style={{
-                "border-radius": "50%",
+                borderRadius: "50%",
                 border: "2px solid  ",
                 width: "40px",
                 margin: "0px",

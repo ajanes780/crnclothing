@@ -5,7 +5,7 @@ import { CollectionPreviewComponent } from "../../components/previewCollection/C
 import SHOP_DATA from "./shopData";
 
 export const ShopComponent = () => {
-  const [data, setData] = useState({ collections: SHOP_DATA });
+  const [data] = useState({ collections: SHOP_DATA });
 
   const { collections } = data;
   console.log("this is data :>> ", collections);
