@@ -35,7 +35,9 @@ export const HeaderComponent = ({ currentUser, userPhoto }) => (
                 margin: "0px",
               }}
             />
-            <p style={{ margin: "0px" }}>{currentUser.displayName}</p>
+            <p style={{ margin: "0px", padding: "0px" }}>
+              {currentUser.displayName}
+            </p>
           </div>
         </>
       ) : (

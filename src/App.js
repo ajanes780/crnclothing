@@ -13,13 +13,13 @@ function App() {
   });
 
   useEffect(() => {
-    // let unsubscribeFromAuth = null;
+    let unsubscribeFromAuth = null;
     auth.onAuthStateChanged((user) => {
       setState((prev) => ({ ...prev, currentUser: user }));
       // console.log(`This is user `, user.displayName, user.photoURL);
+      return () => unsubscribeFromAuth();
     });
-    // return unsubscribeFromAuth();
-  }, [auth]);
+  }, []);
 
   return (
     <div className="App">
