@@ -24,16 +24,19 @@ export const HeaderComponent = ({ currentUser, userPhoto }) => (
             {" "}
             SIGN OUT{" "}
           </div>
-
-          <img
-            src={userPhoto.photoURL}
-            alt="user"
-            style={{
-              "border-radius": "50%",
-              border: "2px solid  ",
-              width: "50px",
-            }}
-          />
+          <div style={{ "margin-left": "30px" }}>
+            <img
+              src={userPhoto.photoURL}
+              alt="user"
+              style={{
+                "border-radius": "50%",
+                border: "2px solid  ",
+                width: "40px",
+                margin: "0px",
+              }}
+            />
+            <p style={{ margin: "0px" }}>{currentUser.displayName}</p>
+          </div>
         </>
       ) : (
         <Link className="option" to="/signin">
