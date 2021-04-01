@@ -14,24 +14,19 @@ function App() {
 
   useEffect(() => {
     let unsubscribeFromAuth = null;
+
     auth.onAuthStateChanged((userAuth) => {
-      // check and if not present add user to database
+      // this is a aysne call to the data base  cant update state till it gets returned
       const userRef = createUserProfileDocument(userAuth);
 
-      userRef.snapshot((snapShot) => {
-        setState((prev) => ({
-          ...prev,
-          currentUser: {
-            id: userRef.snapShot.id,
-            displayPic: userAuth.photoURL,
-            ...snapShot.data(),
-          },
-        }));
-      });
+      setState((prev) => ({
+        ...prev,
+        currentUser: userRef,
+      }));
 
       return () => unsubscribeFromAuth();
     });
-  }, []);
+  }, [state]);
 
   return (
     <div className="App">
