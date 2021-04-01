@@ -1,8 +1,9 @@
 .homepage {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 20px 80px;
+  padding: 20px 0px;
 }
 // h1 {
 //   justify-content: center;
