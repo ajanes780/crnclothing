@@ -16,7 +16,7 @@ const config = {
 export const createUserProfileDocument = async (userAuth, moreData) => {
   // do i get a user auth object back ?
   if (!userAuth) return;
-  // create the user ref by querry the firestore for the user uid
+  // create the user ref by query the fireStore for the user uid
   const userRef = firestore.doc(`users/${userAuth.uid}`);
   // check if the snap shot exits in the data base
   const snapShot = await userRef.get();
