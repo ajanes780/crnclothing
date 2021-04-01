@@ -1,6 +1,5 @@
 import React from "react";
 import "./CollectionItemComponentStyle.scss";
-import { HeroComponent } from "../hero/HeroComponent";
 
 export const CollectionItemComponent = ({ id, name, price, imageUrl }) => (
   <>
