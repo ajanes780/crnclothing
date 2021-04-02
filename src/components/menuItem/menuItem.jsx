@@ -16,10 +16,10 @@ const MenuItemComponent = ({
     onClick={() => history.push(`${match.url}${linkUrl}`)}
   >
     <div
-      style={{ "background-image": `url(${imageUrl})` }}
+      style={{ backgroundImage: `url(${imageUrl})` }}
       className="background-image"
     />
-    <div style={{ "background-color": "#fff" }} className="content">
+    <div style={{ backgroundColor: "#fff" }} className="content">
       <h1 className="title">{title.toUpperCase()}</h1>
       <span className="subtitle">SHOP NOW</span>
     </div>
