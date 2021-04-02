@@ -29,7 +29,7 @@ export const HeaderComponent = ({ currentUser, userPhoto }) => (
               src={
                 userPhoto.photoURL
                   ? userPhoto.photoURL
-                  : "https://robohash.org/${currentUser.id}"
+                  : `https://robohash.org/${currentUser.id}`
               }
               alt="user"
               style={{

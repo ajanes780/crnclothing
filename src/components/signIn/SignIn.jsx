@@ -3,7 +3,7 @@ import { FormInputComponent } from "../formInputComponent/FormInputComponent";
 import { CustomButtonComponent } from "../CustomButton/CustomButtonComponent";
 import {
   signInWithGoogle,
-  signInwithEmailandPassword,
+  signInWithEmailAndPassword,
   auth,
 } from "../../firebase/firebase.utilis";
 import "./SignInStyle.scss";
@@ -59,7 +59,11 @@ export const SignIn = () => {
           <CustomButtonComponent onsubmit={handleSubmit} type="submit">
             Sign In
           </CustomButtonComponent>
-          <CustomButtonComponent onClick={signInWithGoogle} isGoogleSignIn>
+          <CustomButtonComponent
+            type="button"
+            onClick={signInWithGoogle}
+            isGoogleSignIn
+          >
             {""}Sign In With Google{""}
           </CustomButtonComponent>
         </div>
