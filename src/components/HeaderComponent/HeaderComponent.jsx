@@ -26,7 +26,11 @@ export const HeaderComponent = ({ currentUser, userPhoto }) => (
           </div>
           <div style={{ marginLeft: "30px" }}>
             <img
-              src={userPhoto.photoURL}
+              src={
+                userPhoto.photoURL
+                  ? userPhoto.photoURL
+                  : "https://robohash.org/${currentUser.id}"
+              }
               alt="user"
               style={{
                 borderRadius: "50%",

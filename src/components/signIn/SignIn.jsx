@@ -1,7 +1,11 @@
 import React, { useState, useRef } from "react";
 import { FormInputComponent } from "../formInputComponent/FormInputComponent";
 import { CustomButtonComponent } from "../CustomButton/CustomButtonComponent";
-import { signInWithGoogle } from "../../firebase/firebase.utilis";
+import {
+  signInWithGoogle,
+  signInwithEmailandPassword,
+  auth,
+} from "../../firebase/firebase.utilis";
 import "./SignInStyle.scss";
 
 export const SignIn = () => {
@@ -9,17 +13,21 @@ export const SignIn = () => {
   const [state, setState] = useState({ email: "", password: "" });
   // const [state, setState] = useState({ email: "", password: "" });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const { email, password } = state;
 
-    setState((prev) => ({ ...prev, email: "", password: "" }));
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      setState((prev) => ({ ...prev, email: "", password: "" }));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleChange = (event) => {
     event.preventDefault();
-    // console.log(event.target);
     const { name, value } = event.target;
-    // console.log("value :>> ", value);
     setState((prev) => ({ ...prev, [name]: value }));
   };
 

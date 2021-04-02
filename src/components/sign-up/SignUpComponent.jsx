@@ -50,7 +50,7 @@ export const SignUpComponent = () => {
 
   return (
     <div className="sign-up">
-      <h2 className="title">I do not hand an account </h2>
+      <h2 className="title">I do not have an account </h2>
       <span>Sign up with your email and password </span>
       <form onSubmit={handleSubmit} className="sign-up-form">
         <FormInputComponent
