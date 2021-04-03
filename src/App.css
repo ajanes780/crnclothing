@@ -14,3 +14,35 @@ a {
   text-decoration: none;
   color: black;
 }
+
+/* .transitions {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  animation: slideIn 3s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+} */
+/* 
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 30000ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200000ms;
+} */

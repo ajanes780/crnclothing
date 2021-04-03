@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Switch, Route, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import "./App.css";
 
@@ -12,13 +13,10 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utilis";
 import setCurrentUser from "./redux/user/userActions";
 
 function App(props) {
-  // const [state, setState] = useState({
-  //   currentUser: null,
-  // });
+  let location = useLocation();
   useEffect(() => {
     auth.onAuthStateChanged(async (userAuth) => {
       let unsubscribeFromAuth = null;
-      // const { setCurrentUser } = props;
       // this is a aysne call to the data base  cant update state till it gets returned
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -37,11 +35,8 @@ function App(props) {
 
   return (
     <div className="App">
-      <HeaderComponent
-      // currentUser={state.currentUser}
-      // userPhoto={state.currentUser}
-      />
-      <Switch>
+      <HeaderComponent />
+      <Switch location={location}>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopComponent} />
         <Route path="/signin" component={SignInPageAndSignUpPage} />
