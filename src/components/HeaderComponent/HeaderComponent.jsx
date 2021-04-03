@@ -5,6 +5,7 @@ import { auth } from "../../firebase/firebase.utilis";
 // this is a SVG image so this is special syntax to import it
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { CartIconComponent } from "../cartIcon/CartIconComponent";
+import { CartDropDownComponent } from "../cartDropDown/CartDropDownComponent";
 
 import "./HeaderComponentStyle.scss";
 
@@ -55,6 +56,7 @@ const HeaderComponent = ({ currentUser, setInProp }) => {
         )}
         <CartIconComponent />
       </div>
+      <CartDropDownComponent />
     </div>
   );
 };
