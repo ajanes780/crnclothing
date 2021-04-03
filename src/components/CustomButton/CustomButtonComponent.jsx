@@ -5,14 +5,15 @@ export const CustomButtonComponent = ({
   children,
   onClick,
   isGoogleSignIn,
+  inverted,
   ...otherProps
 }) => {
-  // console.log("THIS IS PROPS ", otherProps);
   return (
     <button
       onClick={onClick}
-      // handleSubmit={handleSubmit}
-      className={`${isGoogleSignIn ? "google-sign-in" : ""} custom-button `}
+      className={`${inverted ? "inverted" : ""} ${
+        isGoogleSignIn ? "google-sign-in" : ""
+      } custom-button `}
     >
       {children}{" "}
     </button>

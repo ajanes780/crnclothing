@@ -9,7 +9,7 @@ export const CollectionPreviewComponent = ({ title, items }) => (
     {/* filter to only preview 4 items then map the items to divs  */}
     <div className="preview">
       {items
-        .filter((item, idx) => idx < 4)
+        .filter((item, idx) => idx < 5)
         .map((item) => (
           <CollectionItemComponent
             key={item.id}
