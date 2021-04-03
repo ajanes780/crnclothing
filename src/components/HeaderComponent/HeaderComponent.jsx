@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import { auth } from "../../firebase/firebase.utilis";
 // this is a SVG image so this is special syntax to import it
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { CartIconComponent } from "../cartIcon/CartIconComponent";
+import CartIconComponent from "../cartIcon/CartIconComponent";
 import { CartDropDownComponent } from "../cartDropDown/CartDropDownComponent";
 
 import "./HeaderComponentStyle.scss";
 
-const HeaderComponent = ({ currentUser, setInProp }) => {
+const HeaderComponent = ({ currentUser, hidden }) => {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -56,11 +56,17 @@ const HeaderComponent = ({ currentUser, setInProp }) => {
         )}
         <CartIconComponent />
       </div>
-      <CartDropDownComponent />
+      {hidden ? null : <CartDropDownComponent />}
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({ currentUser: state.user.currentUser });
+// how to destructor nested props  first we  select from state -> user  then the current user
+// like so {user: currentUser} then you can put a comma and do it again for the next value
+// we are then mapping all these values to props from redux to our component
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser,
+  hidden,
+});
 
 export default connect(mapStateToProps)(HeaderComponent);
