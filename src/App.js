@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -39,14 +39,28 @@ function App(props) {
       <Switch location={location}>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopComponent} />
-        <Route path="/signin" component={SignInPageAndSignUpPage} />
+        <Route
+          exact
+          path="/signin"
+          render={() =>
+            props.currentUser ? (
+              <Redirect to="/" />
+            ) : (
+              <SignInPageAndSignUpPage />
+            )
+          }
+        />
       </Switch>
     </div>
   );
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
