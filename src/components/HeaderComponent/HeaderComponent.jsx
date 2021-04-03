@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { auth } from "../../firebase/firebase.utilis";
 // this is a SVG image so this is special syntax to import it
 import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { CartIconComponent } from "../cartIcon/CartIconComponent";
 
 import "./HeaderComponentStyle.scss";
 
@@ -27,7 +28,7 @@ const HeaderComponent = ({ currentUser, setInProp }) => {
               {" "}
               SIGN OUT{" "}
             </div>
-            <div style={{ marginLeft: "30px" }}>
+            <div style={{ margin: "0px 30px" }}>
               <img
                 src={
                   currentUser
@@ -52,6 +53,7 @@ const HeaderComponent = ({ currentUser, setInProp }) => {
             SIGN IN
           </Link>
         )}
+        <CartIconComponent />
       </div>
     </div>
   );
