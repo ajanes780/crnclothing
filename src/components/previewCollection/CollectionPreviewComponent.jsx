@@ -1,6 +1,6 @@
 import React from "react";
 import "./CollectionPreviewComponentStyle.scss";
-import { CollectionItemComponent } from "../collectionItem/CollectionItemComponent";
+import CollectionItemComponent from "../collectionItem/CollectionItemComponent";
 
 export const CollectionPreviewComponent = ({ title, items }) => (
   <div className="collection-preview">
@@ -13,6 +13,7 @@ export const CollectionPreviewComponent = ({ title, items }) => (
         .map((item) => (
           <CollectionItemComponent
             key={item.id}
+            item={item}
             name={item.name}
             imageUrl={item.imageUrl}
             price={item.price}
