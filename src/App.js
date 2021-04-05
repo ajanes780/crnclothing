@@ -1,18 +1,20 @@
+//components
 import React, { useEffect } from "react";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-// import { TransitionGroup, CSSTransition } from "react-transition-group";
-
-import "./App.css";
-
-import { HomePage } from "./pages/homepage/HomepageComponent";
-import { ShopComponent } from "./pages/shop/shopComponent";
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
-import { SignInPageAndSignUpPage } from "./pages/signInPage/signInAndSignUpPage";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utilis";
 import setCurrentUser from "./redux/user/userActions";
 import { selectCurrentUser } from "./redux/user/userSelectors";
+
+//styles
+import "./App.css";
+//pages
+import { HomePage } from "./pages/homepage/HomepageComponent";
+import { ShopComponent } from "./pages/shop/shopComponent";
+import { SignInPageAndSignUpPage } from "./pages/signInPage/signInAndSignUpPage";
+import checkoutPageComponent from "./pages/checkout/checkoutPageComponent";
 
 function App(props) {
   let location = useLocation();
@@ -41,6 +43,7 @@ function App(props) {
       <Switch location={location}>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopComponent} />
+        <Route path="/checkout" component={checkoutPageComponent} />
         <Route
           exact
           path="/signin"
