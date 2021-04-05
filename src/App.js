@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import "./App.css";
@@ -11,6 +12,7 @@ import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import { SignInPageAndSignUpPage } from "./pages/signInPage/signInAndSignUpPage";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utilis";
 import setCurrentUser from "./redux/user/userActions";
+import { selectCurrentUser } from "./redux/user/userSelectors";
 
 function App(props) {
   let location = useLocation();
@@ -55,8 +57,8 @@ function App(props) {
   );
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
