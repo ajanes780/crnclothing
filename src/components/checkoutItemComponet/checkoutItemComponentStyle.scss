@@ -19,7 +19,12 @@
   .name,
   .quantity,
   .price {
+    display: flex;
     width: 23%;
+    .arrow {
+      cursor: pointer;
+      margin: 0 10px;
+    }
   }
 
   .quantity {
