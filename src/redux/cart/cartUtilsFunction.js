@@ -1,6 +1,6 @@
 // excepts the current cart items and the item to add
 // then uses find to check and see if its in the array
-// sets it to const called exisiting cart items
+// sets it to const called existing cart items
 
 export const addItemToCart = (cartItems, cartItemToAdd) => {
   const existingCartItem = cartItems.find(
@@ -20,7 +20,6 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 };
 
 // we will pass in the current cart item and the one to remove
-
 export const removeItemFromCart = (cartItems, cartItemToRemove) => {
   // we will check and make sure the existing item matches the one we want to remove
   const existingCartItem = cartItems.find(
